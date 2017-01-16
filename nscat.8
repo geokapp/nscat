@@ -1,0 +1,48 @@
+.\" Manpage for nscat.
+.\" Contact geokapp@gmail.com to correct errors or typos.
+.TH man 8 "16 SEP 2016" "1.0" "nscat man page"
+.SH NAME
+nscat \- Print namespace information
+.SH SYNOPSIS
+nscat [OPTIONS]
+.SH DESCRIPTION
+nscat is a recursive namespace listing program that produces a depth indented listing of \
+system namespaces and member processes. With no arguments, nscat lists the identities of \
+all the identified namespaces that exist in the system.
+
+.SH OPTIONS
+.TP
+.BR \-t ", " \-\-ns-type " "  \fINS[,NS]...\fR
+Print information about the given namespace types only. The NS parameter can be one of: \
+IPC, MNT, NET, PID, USER, UTS, CGROUP.
+.TP
+.BR \-n ", " \-\-ns " " \fINID\fR
+Print information only for the namespace whose identifier matches NID.
+.TP
+.BR \-p ", " \-\-pid " " \fIPID\fR
+Print namespace information only for the process whose process ID matches PID.
+.TP
+.BR \-d ", " \-\-descendants
+This option can be used in conjuction with the --pid option. It instructs the program \
+to print namespace information for the given process and its descendants. Specifying \
+this option alone has no effect.
+.TP
+.BR \-r ", " \-\-show-procs
+This option instructs the program to display all the process members of each namespace.
+.TP
+.BR \-e ", " \-\-extend-info
+Print extended information for each namespace.
+.TP
+.BR \-e ", " \-\-help
+Print a help message and exit.
+.TP
+.BR \-v ", " \-\-version
+Print the version number and exit.
+.SH SEE ALSO
+lsns(1), nsenter(1), readlink(1), unshare(1), clone(2), setns(2), unshare(2), proc(5), \
+capabilities(7), cgroup_namespaces(7), cgroups(7), credentials(7), pid_namespaces(7),\
+user_namespaces(7), switch_root(8)
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+Giorgos Kappes (geokapp@gmail.com)
